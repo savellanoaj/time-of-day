@@ -50,6 +50,10 @@
 			For example, between 5am and 12 noon, the page will show a picture of a doll that has a sun on it, 
 			a saying that says 'Good Morning!' and the color orange for the background of the page.
 		</p>
+
+		<p>
+			I also added what the day of the week it is. For extra credit ;).
+		</p>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible" id="my-pic">
      <footer>
       <p><small>&copy; 2023 by 
@@ -79,39 +83,76 @@
 
 	let myDate = new Date();
 	let myHour = myDate.getHours();
+	let myDay = myDate.getDay();
 	let myGreeting = "";
 	let myColor = "";
 	let myPic = "";
 
 	//TESTING ONLY REMOVE THE FOLLOWING LINE
 	//myHour = 6;
+	//myDay = 3;
 
 	if(myHour > 5 && myHour < 12){//morning
-		myGreeting = "Good Morning!";
+		myGreeting = "Good Morning! Today is";
 		myColor = "orange";
 		myPic = "morning.jpg";
 
 	}	else if(myHour >= 12 && myHour < 18){//afternoon
-		myGreeting = "Good Afternoon!";
+		myGreeting = "Good Afternoon! Today is";
 		myColor = "green";
 		myPic = "afternoon.jpg";
 
 	}	else if(myHour >= 18 && myHour < 23){//evening
-		myGreeting = "Good Evening!";
+		myGreeting = "Good Evening! Today is";
 		myColor = "red";
 		myPic = "evening.jpg";
 
 	}	else{//night
-		myGreeting = "Good Night!";
+		myGreeting = "Good Night! Today is";
 		myColor = "purple";
 		myPic = "night.jpg";
+	}
+
+	switch(myDay){
+
+
+		case 0:
+			today = "Sunday!";
+		break;
+
+		case 1:
+			today = "Monday!";
+		break;
+
+		case 2:
+			today = "Tuesday!";
+		break;
+
+		case 3:
+			today = "Wednesday!";
+		break;
+
+		case 4:
+			today = "Thursday!";
+		break;
+
+		case 5:
+			today = "Friday!";
+		break;
+
+		case 6:
+			today = "Saturday!";
+		break;
+
+		default:
+			today = "Something went wrong!";
 	}
 
 	//prepend path to image
 	myPic = "images/" + myPic;
 
 	//custom greeting
-	document.getElementById("my-greeting").innerHTML = myGreeting;
+	document.getElementById("my-greeting").innerHTML = myGreeting + " " + today;
 
 	//custom color
 	document.querySelector("html").style.backgroundColor = myColor;
